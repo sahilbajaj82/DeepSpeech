@@ -57,9 +57,7 @@ Alphabet::init(const char *config_file)
     if (line == " ") {
       space_label_ = label;
     }
-    if (line.length() == 0) {
-      continue;
-    }
+    
     label_to_str_[label] = line;
     str_to_label_[line] = label;
     ++label;
@@ -187,17 +185,6 @@ Alphabet::Encode(const std::string& input) const
   std::vector<unsigned int> result;
   for (auto cp : split_into_codepoints(input)) {
     result.push_back(EncodeSingle(cp));
-  }
-  return result;
-}
-
-std::vector<unsigned int>
-UTF8Alphabet::Encode(const std::string& input) const
-{
-  std::vector<unsigned int> result;
-  for (auto byte_char : input) {
-    std::string byte_str(1, byte_char);
-    result.push_back(EncodeSingle(byte_str));
   }
   return result;
 }
