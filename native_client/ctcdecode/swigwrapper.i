@@ -3,7 +3,6 @@
 %{
 #include "ctc_beam_search_decoder.h"
 #define SWIG_FILE_WITH_INIT
-#define SWIG_PYTHON_STRICT_BYTE_CHAR
 #include "workspace_status.h"
 %}
 
